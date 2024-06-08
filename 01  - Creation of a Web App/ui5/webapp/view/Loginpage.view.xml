@@ -1,0 +1,37 @@
+<mvc:View controllerName="teamprojekt.controller.Loginpage" xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+  <Shell>
+    <App>
+      <pages>
+        <Page id="page2" title="{i18n>title}">
+          <content>
+            <FlexBox id="flexbox1" justifyContent="Center">
+              <VBox id="vbox1" alignContent="Center" width="50%">
+                <FlexBox alignItems="Center" justifyContent="Center">
+                  <items>
+                    <Image src="images/logo.png" alt="Logo Realcore" width="240px" height="60px" />
+                  </items>
+                </FlexBox>
+                <Text id="title" class="HeaderLabel sapUISmallMargtin" text="Login Form" />
+                <HBox id="hbox1">
+                  <Label id="label1" text="Username:" width="100px"></Label>
+                  <Input id="username" showClearIcon="true" width="450px" required="true"></Input>
+                </HBox>
+                <HBox id="hbox2">
+                  <Label id="label2" text="Password:" width="100px"></Label>
+                  <Input id="password" showClearIcon="true" type="Password" width="450px" required="true"></Input>
+                </HBox>
+                <FlexBox id="flexbox2" justifyContent="Center">
+                  <Button id="buttonh" text="Home" iconFirst="true" icon="sap-icon://home" press="gotohomepage" />
+                  <Button id="button2" icon="sap-icon://customer" iconFirst="true" text="Login >>" class="sapUISmallMargtin" type="Accept" press="onLoginUser" />
+                  <Button id="button3" icon="sap-icon://customer" iconFirst="true" text="GotoRegister >>" type="Reject" press="gotoRegisterpage" />
+                  <Button id="buttons" text="Settings" icon="sap-icon://action-settings" press="onSettingsPress" />
+                  <Button id="button4" text="Help" icon="sap-icon://hint" press="onHelpPress" />
+                </FlexBox>
+              </VBox>
+            </FlexBox>
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
+</mvc:View>

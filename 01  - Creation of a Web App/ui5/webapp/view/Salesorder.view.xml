@@ -1,0 +1,10 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="your.namespace.controller.Protected">
+  <Page title="Kundenauftrag">
+    <content>
+      <Text text="Willkommen auf der geschützten Seite!"/>
+    </content>
+  </Page>
+</mvc:View>

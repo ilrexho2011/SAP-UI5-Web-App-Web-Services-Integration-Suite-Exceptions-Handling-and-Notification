@@ -1,0 +1,76 @@
+<mvc:View controllerName="teamprojekt.controller.Homepage" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Shell>
+        <App>
+            <pages>
+                <Page id="page1" title="{i18n>title}">
+                    <content>
+                        <Text></Text>
+                    </content>
+                    <FlexBox id="flexbox0">
+                        <VBox id="vbox0">
+                            <Button enabled="true" icon="sap-icon://locked" iconFirst="true" text="GoToLogin  >>" type="Accept" press="onSendButtonGoToLoginPagePress" />
+                        </VBox>
+                    </FlexBox>
+
+                    <FlexBox id="flexbox1" justifyContent="Center">
+                        <VBox id="vbox1">
+                            <Text id="title2" class="HeaderLabel sapUISmallMargtin" text="Tabelle der verfügbaren Artikel:" />
+                        </VBox>
+                    </FlexBox>
+                    <Table id="saltTable" items="{saltData>/salt}" width="auto"> <!-- Changed binding path -->
+                        <columns>
+                            <Column>
+                                <header>
+                                    <Label text="Salzkod"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Titel"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Hersteller"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Stock"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Einheit"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Preis/Einheit"/>
+                                </header>
+                            </Column>
+                            <Column>
+                                <header>
+                                    <Label text="Währung"/>
+                                </header>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{saltData>saltcode}"/>
+                                    <Text text="{saltData>title}"/>
+                                    <Text text="{saltData>producer}"/>
+                                    <Text text="{saltData>stock}"/>
+                                    <Text text="{saltData>unit}"/>
+                                    <Text text="{saltData>priceperunit}"/>
+                                    <Text text="{saltData>currency}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

@@ -1,0 +1,54 @@
+<mvc:View controllerName="teamprojekt.controller.Registerpage" xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+  <Shell>
+    <App>
+      <pages>
+        <Page id="registerPage" title="User Registration">
+          <content>
+            <FlexBox id="flexbox1" justifyContent="Center">
+              <VBox id="vbox1" alignContent="Center" width="50%">
+                <FlexBox alignItems="Center" justifyContent="Center">
+                  <items>
+                    <Image src="images/logo.png" alt="Logo Realcore" width="240px" height="60px" />
+                  </items>
+                </FlexBox>
+                <Text id="title" class="HeaderLabel sapUISmallMargtin" text="Register Form" />
+                <HBox id="hbox1">
+                  <Label id="label1" text="Name:" width="100px"></Label>
+                  <Input id="name" showClearIcon="true" width="450px" required="true"></Input>
+                </HBox>
+                <HBox id="hbox2">
+                  <Label id="label2" text="Surname:" width="100px"></Label>
+                  <Input id="surname" showClearIcon="true" width="450px" required="true"></Input>
+                </HBox>
+                <HBox id="hbox3">
+                  <Label id="label3" text="Fiscal Code (ZINN):" width="100px"></Label>
+                  <Input id="ZINN" showClearIcon="true" width="450px" required="true"></Input>
+                </HBox>
+                <HBox id="hbox4">
+                  <Label id="label4" text="Email:" width="100px"></Label>
+                  <Input id="email" showClearIcon="true" width="450px" required="true"></Input>
+                </HBox>
+                <HBox id="hbox5">
+                  <Label id="label5" text="Phone:" width="100px"></Label>
+                  <Input id="tel" showClearIcon="true" width="450px" required="true"></Input>
+                </HBox>
+                <HBox id="hbox6">
+                  <Label id="label6" text="Username:" width="100px"></Label>
+                  <Input id="username" showClearIcon="true" width="450px" required="true"></Input>
+                </HBox>
+                <HBox id="hbox7">
+                  <Label id="label7" text="Password:" width="100px"></Label>
+                  <Input id="password" showClearIcon="true" type="Password" width="450px" required="true"></Input>
+                </HBox>
+                <FlexBox id="flexbox2" justifyContent="Center">
+                  <Button id="buttonRegister" iconFirst="true" text="Register >>" class="sapUISmallMargtin" type="Accept" press="onRegisterUser" />
+                  <Button id="buttonBack" iconFirst="true" text="Back to Login" type="Reject" press="onBackToLogin" />
+                </FlexBox>
+              </VBox>
+            </FlexBox>
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
+</mvc:View>

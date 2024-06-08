@@ -1,0 +1,13 @@
+<mvc:View controllerName="teamprojekt.controller.Loginpage" xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+  <Shell>
+    <App>
+      <pages>
+        <Page id="page3" title="Protected Page">
+          <content>
+            <Text text="Welcome to the protected page!" />
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
+</mvc:View>
