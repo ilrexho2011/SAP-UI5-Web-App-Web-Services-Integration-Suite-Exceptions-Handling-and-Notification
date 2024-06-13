@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+    <script>
+        fetch('/webapp/php/index.html')
+            .then(response => {
+                if (response.status === 401) {
+                    window.location.href = 'http://185.66.131.203:4000/login';
+                }
+            });
+    </script>
+    <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+            id="sap-ui-bootstrap"
+            data-sap-ui-libs="sap.m,sap.ui.table,sap.ui.commons"
+            data-sap-ui-theme="sap_bluecrystal">
+    </script>
+    <script>
+        var json = new sap.ui.model.json.JSONModel();
+        $.ajax({
+            url: 'tableData.php',
+            async: false,
+            success: function(data) {
+                json.setData(JSON.parse(data));
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
+        var tableo = new sap.ui.table.Table({
+            title: "Albsale - Tabelle der verfügbaren Artikel >>>> Damit Sie bestellen können, aktivieren Sie den Button an der Seite des Artikels",
+            visibleRowCount: 14,
+            width: "910px" // Adjust the width as needed
+        });
+
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Salzkod"}),
+            template: new sap.ui.commons.TextField().bindProperty("value","saltcode"),
+            width: "100px"
+        }));
+
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Titel"}),
+            template: new sap.ui.commons.TextField().bindProperty("value","title"),
+            width: "150px"
+        }));
+
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Hersteller"}),
+            template: new sap.ui.commons.TextField().bindProperty("value","producer"),
+            width: "100px"
+        }));
+
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Stock"}),
+            template: new sap.ui.commons.TextField().bindProperty("value","stock"),
+            width: "100px"
+        }));
+
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Einheit"}),
+            template: new sap.ui.commons.TextField().bindProperty("value","unit"),
+            width: "100px"
+        }));
+
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Preis/Einheit"}),
+            template: new sap.ui.commons.TextField().bindProperty("value","priceperunit"),
+            width: "100px"
+        }));
+
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Währung"}),
+            template: new sap.ui.commons.TextField().bindProperty("value","currency"),
+            width: "100px"
+        }));
+
+        // Adding button column
+        tableo.addColumn(new sap.ui.table.Column({
+            label: new sap.ui.commons.Label({text:"Vorgang starten"}),
+            template: new sap.ui.commons.Button({
+                text: "Bestellung",
+                press: function (oEvent) {
+                    var context = oEvent.getSource().getBindingContext();
+                    var data = context.getObject();
+                    populateForm(data);
+                },
+                className: "order-button"
+            }),
+            width: "120px"
+        }));
+
+        tableo.setModel(json)
+        tableo.bindRows("/result");
+        tableo.placeAt("content");
+
+        function populateForm(data) {
+            document.getElementById('saltcode').value = data.saltcode;
+            document.getElementById('title').value = data.title;
+            document.getElementById('producer').value = data.producer;
+            document.getElementById('priceperunit').value = data.priceperunit;
+            document.getElementById('currency').value = data.currency;
+            document.getElementById('stock').value = data.stock;
+            document.getElementById('unit').value = data.unit;
+            document.getElementById('formSection').style.display = 'block';
+            document.getElementById('quantity').value = '';
+            document.getElementById('value').value = '';
+            document.getElementById('currency2').value = data.currency;
+        }
+
+        function calculateValue() {
+            var quantity = document.getElementById('quantity').value;
+            var priceperunit = document.getElementById('priceperunit').value;
+            var value = quantity * priceperunit;
+            document.getElementById('value').value = value.toFixed(2);
+        }
+    </script>
+
+    <style>
+        img {
+            margin-top: 20px; /* Adjust the top margin as needed */
+            margin-left: 50px;
+            width: 350px;
+            height: 87px;
+        }
+
+        /* CSS to center-align the table horizontally */
+        #content {
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .sapUiTable {
+            width: 1000px; /* Adjust the width as needed */
+        }
+
+        table{
+            margin-left: 50px;
+            padding: 10px;
+            background: -webkit-radial-gradient(#f7f8f8,#aac0df);  /* Chrome 10-25, Safari 5.1-6 */
+        }
+
+        #formSection {
+            display: none;
+            margin-top: 20px;
+            
+        }
+
+        #button01{
+            width: 160px;
+            height:30px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Specific CSS selector for order buttons */
+        .order-button .sapUiBtn {
+            background-color: blue !important;
+            color: white !important;
+            border-radius: 5px !important;
+            border: none !important;
+            padding: 5px 10px !important;
+        }
+
+    </style>
+
+</head>
+<body class="sapUiBody" role="application">
+    <img src="images/logo.png" alt="" />
+
+    <table><tr><td width="950"><div id="content"></div></td>
+
+    <td width="300" valign="top"><div id="formSection">
+        <form action="submitOrder.php" method="post">
+            
+            <h3>Bestellung aufgeben</h3>
+            <label for="saltcode">Salzkod: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" id="saltcode" name="saltcode" readonly /><br /><br />
+            <label for="title">Titel: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="title" name="title" /><br /><br />
+            <label for="producer">Hersteler: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="producer" name="producer" readonly /><br /><br />
+            <label for="priceperunit">Preis / Einheit: </label>
+            <input type="text" id="priceperunit" name="priceperunit" readonly /><br /><br />
+            <label for="currency">Währung: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="currency" name="currency" readonly /><br /><br />
+            <input type="hidden" id="stock" name="stock">
+            <label for="quantity">Menge:<span style="color:red;">*</span> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" id="quantity" name="quantity" required min="1" max="" oninput="calculateValue()" /><br /><br />
+            <label for="unit">Einheit: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="unit" name="unit" /><br /><br />
+            <label for="value">Wert: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="value" name="value" readonly /><br /><br />
+            <label for="currency">Währung: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="currency2" name="currency" readonly /><br /><br />
+            <input type="submit" id="button01" value="Bestellung abschicken" />
+        </form>
+    </div></td></tr></table>
+</body>
+</html>
