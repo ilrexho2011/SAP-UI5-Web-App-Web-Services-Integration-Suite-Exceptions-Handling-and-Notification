@@ -3,13 +3,13 @@
 <head><link rel="stylesheet" href="style.css"></head>
 
 <body>
- <div class="topnav">
-  <a class="active" href="http://localhost/studentapi/welcome.html">Home</a>
-  <a href="http://localhost/studentapi/new_record.php">Add Record</a>
-  <a href="http://localhost/studentapi/modifyrecord.php">Modify Record</a>
-  <a href="http://localhost/studentapi/removeRecord.php">Remove Record</a>
-  <a href="http://localhost/studentapi/view.php">View Records</a>
-  <a href="http://localhost/studentapi/index.html">StudentDB</a>
+<div class="topnav">
+  <a class="active" href="http://localhost/saltapi/welcome.html">Home</a>
+  <a href="http://localhost/saltapi/new_record.php">Add Record</a>
+  <a href="http://localhost/saltapi/modifyrecord.php">Modify Record</a>
+  <a href="http://localhost/saltapi/removeRecord.php">Remove Record</a>
+  <a href="http://localhost/saltapi/view.php">View Records</a>
+  <a href="http://localhost/saltapi/index.html">StudentDB</a>
 </div>
 <br>
 
