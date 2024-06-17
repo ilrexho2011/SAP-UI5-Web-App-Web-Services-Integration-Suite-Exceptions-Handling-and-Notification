@@ -17,7 +17,7 @@ app.use(session({
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'ilrexho',
+    user: 'xxxxxxxxxxx',
     password: 'xxxxxxxxxxxxxxxxxxx',
     database: 'albsale-vlora',
     port: 3306
