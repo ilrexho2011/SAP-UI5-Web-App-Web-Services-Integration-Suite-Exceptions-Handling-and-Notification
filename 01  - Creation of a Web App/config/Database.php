@@ -3,7 +3,7 @@
     // DB Params
     private $host = 'localhost';
     private $db_name = 'yyyyyyyyyyyyyyyyyyyy';
-    private $username = 'ilrexho';
+    private $username = 'xxxxxxxxxxxxxxxxxxx';
     private $password = 'xxxxxxxxxxxxxxxxxxx';
     private $conn;
 
