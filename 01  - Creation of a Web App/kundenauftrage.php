@@ -11,7 +11,7 @@
 <img src="image/albsale01.jpg" width="650" />
 <br /><br />
 <?php
-$link = mysqli_connect("localhost", "ilrexho", "--------------------", "albsale-vlora"); 
+$link = mysqli_connect("localhost", "xxxxxxxxxxxxxxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxx", "albsale-vlora"); 
   
 if ($link === false) { 
     die("ERROR: Could not connect. "
