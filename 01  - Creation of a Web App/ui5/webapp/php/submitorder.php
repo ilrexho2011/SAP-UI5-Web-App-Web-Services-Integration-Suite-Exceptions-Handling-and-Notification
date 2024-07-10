@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "ilrexho";
+$username = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 $password = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 $dbname = "albsale-vlora";
 
@@ -83,8 +83,8 @@ $jsonData = json_encode($salesOrderData);
 $sapCloudIntegrationUrl = "https://355554d9trial.it-cpitrial06-rt.cfapps.us10-001.hana.ondemand.com/http/receiveSalesOrder";
 
 // Encode the credentials for Basic Authentication
-$username = 'sb-dc841e47-c429-4260-9284-64f44faa6ce4!b287713|it-rt-355554d9trial!b55215';
-$password = '7cdcfe9b-3c39-4162-aacf-baa7d519daf8$x2Ek7N_NIA7OsVj0jE2iDEOHbKWFJWXzYDwOa2-9PBM=';
+$username = 'sb-dc841ez47-c429-4260-9284-64f44faa6ce4!b287713|it-rt-355554d9trial!b55215';
+$password = 'x7cdcfe9b-3c39-4162-aacf-baa7d519daf8$x2Ek7N_NIA7OsVj0jE2iDEOHbKWFJWXzYDwOa2-9PBM=';
 $auth = base64_encode("$username:$password");
 
 // Send data to SAP Cloud Integration
