@@ -20,7 +20,7 @@
 </form>
 
 <?php
-$link = mysqli_connect("localhost", "ilrexho", "xxxxxxxxxxxxxxxxxxxxxxxx", "albsale-vlora"); 
+$link = mysqli_connect("localhost", "xxxxxxxxxxxxxxxxxxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxxxx", "albsale-vlora"); 
   
 if ($link === false) { 
     die("ERROR: Could not connect. "
