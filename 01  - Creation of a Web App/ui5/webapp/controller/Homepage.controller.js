@@ -9,9 +9,9 @@ sap.ui.define([
             var oView = this.getView();
 
             // Determine the base URL dynamically
-            var baseUrl = window.location.hostname === 'localhost' || window.location.hostname === '192.168.31.99'
+            var baseUrl = window.location.hostname === 'localhost' || window.location.hostname === '192.168.131.99'
                 ? 'http://localhost:4000'
-                : 'http://185.66.131.203:4000';
+                : 'http://185.66.133.203:4000';
 
             // Fetch data from the Node.js backend
             $.ajax({
