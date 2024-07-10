@@ -13,7 +13,7 @@
 <?php
 // We have this database connection parameters
 $servername = "localhost";
-$username = "ilrexho";
+$username = "xxxxxxxxxxxxxxxxxxxx";
 $password = "xxxxxxxxxxxxxxxxxx";
 $dbname = "albsale-vlora";
 
