@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 
 const db = mysql.createConnection({
   host: 'localhost:3306',
-  user: 'ilrexho',
+  user: 'xxxxxxxxxxxxxxx',
   password: 'xxxxxxxxxxxxxxxxxxxxx',
-  database: 'albsale-vlora'
+  database: 'xxxxxxxxxxxxxxxxxxx'
 });
 
 db.connect(err => {
@@ -42,3 +42,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
