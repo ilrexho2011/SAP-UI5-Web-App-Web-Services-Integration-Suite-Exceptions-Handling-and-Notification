@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 $password = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-$dbname = "albsale-vlora";
+$dbname = "xxxxxxxxxxxxxxx";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -116,3 +116,4 @@ if ($httpCode == 200) {
 
 $conn->close();
 ?>
+
